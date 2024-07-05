@@ -13,6 +13,22 @@ public:
     sf::Texture player_texture;
     sf::Sprite player_sprite;
 
+
+    Player()
+    {
+        std::cout << "Default Contructor is Called" << std::endl;
+    }
+    
+    Player(int health, int movement_speed)
+    {
+        std::cout << "Health of the Player: " <<health<< std::endl;
+        std::cout << "Movement Speed of The Player: " <<movement_speed << std::endl;
+    }
+    ~Player()
+    {
+        std::cout << "Destructor is Called" << std::endl;
+    }
+    
     void takeDamage()
     {
 
@@ -40,6 +56,7 @@ int main()
 {
 
     Player player;
+    Player player2(10, 5);
 
     sf::VideoMode videoMode = sf::VideoMode(800, 600);
     sf::RenderWindow window(videoMode, "SFML Window");
