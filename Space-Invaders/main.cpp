@@ -17,9 +17,9 @@ public:
     {
 
     }
-    void move()
+    void move(float offsetX) 
     {
-
+        position.x += offsetX;
     }
     void shootBullets()
     {
@@ -28,6 +28,10 @@ public:
     sf::Vector2f getPosition()
     {
         return position;
+    }
+    int getMovementSpeed()
+    {
+        return movement_speed;
     }
 
 };
@@ -55,11 +59,11 @@ int main()
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
         {
-            player.move();
+            player.move(-1*player.getMovementSpeed());
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
         {
-            player.move();
+            player.move(player.getMovementSpeed());
         }
 
         window.clear(sf::Color::Black);
