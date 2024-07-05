@@ -1,26 +1,37 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
-int main()
-{
+class Player {
 
-    sf::VideoMode videoMode = sf::VideoMode(1200, 800);
-    sf::RenderWindow window(videoMode, "SFML Window");
+private:
+    int health = 3;
+    sf::Vector2f position = sf::Vector2f(200.0f, 100.0f);
+    int movement_speed = 5;
+    int player_score = 0;
 
-    while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            // Check for window closure
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
+public:
+    sf::Texture player_texture;
+    sf::Sprite player_sprite;
 
+    void takeDamage()
+    {
 
-        // Clear the window
-        window.clear(sf::Color::Blue);
-
-        // Display whatever you draw
-        window.display();
     }
+    void move()
+    {
+
+    }
+    void shootBullets()
+    {
+
+    }
+
+
+};
+
+int main() {
+
+    Player player;
 
     return 0;
 }
