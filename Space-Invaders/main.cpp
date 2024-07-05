@@ -30,7 +30,6 @@ public:
         return position;
     }
 
-
 };
 
 int main()
@@ -47,6 +46,12 @@ int main()
     while (window.isOpen()) 
     {
         sf::Event event;
+        while (window.pollEvent(event)) {
+            // Check for window closure
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
         {
@@ -61,14 +66,6 @@ int main()
         player.player_sprite.setPosition(player.getPosition()); 
         window.draw(player.player_sprite);   
         window.display(); 
-
-        while (window.pollEvent(event)) {
-            // Check for window closure
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-
-
-        return 0;
     }
+    return 0;
 }
