@@ -45,3 +45,4 @@ void ServiceLocator::render() {
 
 // Returns a pointer to the currently set graphic service.
 GraphicService* ServiceLocator::getGraphicService() { return graphic_service; }
+EventService* ServiceLocator::getEventService() { return event_service; }
