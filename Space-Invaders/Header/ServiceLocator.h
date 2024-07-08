@@ -1,10 +1,10 @@
 #pragma once
-
-#pragma once
-
+#include "../Header/GraphicService.h"
 class ServiceLocator
 {
 private:
+    // Private Attributes:
+    GraphicService* graphic_service;
 
     ServiceLocator();
     ~ServiceLocator();
@@ -22,6 +22,6 @@ public:
 
     // Methods to Get Specific Services: 
     //EventService* getEventService();   // Retrieve the EventService instance
-    //GraphicService* getGraphicService();   // Retrieve the GraphicService instance
+    GraphicService* getGraphicService();   // Retrieve the GraphicService instance
 
 };

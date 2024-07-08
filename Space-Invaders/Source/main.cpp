@@ -55,13 +55,13 @@ public:
 
 int main()
 {
-    GameService gameService;
+    GameService* gameService = new GameService();
 
-    gameService.ignite();
-    while (gameService.isRunning())
+    gameService->ignite();
+    while (gameService->isRunning())
     {
-        gameService.update();
-        gameService.render();
+        gameService->update();
+        gameService->render();
     }
     return 0;
     
