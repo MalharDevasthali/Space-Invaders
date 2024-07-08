@@ -30,5 +30,5 @@ void GameService::render()
 
 bool GameService::isRunning()
 {
-	return false;
+	return true;
 }
