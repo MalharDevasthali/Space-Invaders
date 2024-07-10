@@ -2,6 +2,8 @@
 #include "../Header/GraphicService.h"
 #include "../Header/EventService.h"
 #include "../Header/PlayerService.h"
+#include "../Header/TimeService.h"
+
 class ServiceLocator
 {
 private:
@@ -9,24 +11,26 @@ private:
     GraphicService* graphic_service;
     EventService* event_service;
     PlayerService* player_service;
+    TimeService* time_service;
 
     ServiceLocator();
     ~ServiceLocator();
 
-    void createServices(); 			// Creates instances of all services.
-    void clearAllServices(); 		//	Deletes and deallocates memory for all services.
+    void createServices(); 			
+    void clearAllServices(); 		
 
 public:
 
     static ServiceLocator* getInstance(); 
 
-    void initialize(); 			//	Initializes the ServiceLocator.
-    void update(); 				//	Updates all services.
-    void render(); 				//	Renders using the services.
+    void initialize(); 			
+    void update(); 				
+    void render(); 				
 
 
     GraphicService* getGraphicService();
     EventService* getEventService();
     PlayerService* getPlayerService();
+    TimeService* getTimeService();
 
 };
