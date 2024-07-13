@@ -1,5 +1,5 @@
-#include"../Header/PlayerService.h"
-#include "../Header/ServiceLocator.h"
+#include "../../header/Player/PlayerService.h"
+#include "../../Header/ServiceLocator.h"
 
 
 PlayerService::PlayerService()
