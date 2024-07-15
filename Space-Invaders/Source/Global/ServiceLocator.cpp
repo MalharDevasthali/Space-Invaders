@@ -1,4 +1,4 @@
-#include "../Header/Global/ServiceLocator.h"
+#include "../../Header/Global/ServiceLocator.h"
 
 ServiceLocator::ServiceLocator() {
 	graphic_service = nullptr;
