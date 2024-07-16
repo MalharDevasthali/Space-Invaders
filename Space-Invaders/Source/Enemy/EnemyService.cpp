@@ -1,33 +1,39 @@
 #include "../../Header/Enemy/EnemyService.h"
 #include "../../Header/Enemy/EnemyController.h"
+#include "../../Header/Global/ServiceLocator.h"
+
 namespace Enemy
 {
+	using namespace Global;
 	
 	EnemyService::EnemyService()
 	{
-		enemy_controller = new EnemyController();
+		enemy = nullptr;
 	}
-	
+
 	EnemyService::~EnemyService()
 	{
-		delete(enemy_controller);
+		delete(enemy);
 	}
 	void EnemyService::initialize()
 	{
-		enemy_controller->initialize();
+		spawnEnemy();
 	}
 	void EnemyService::update()
 	{
-		enemy_controller->update();
+		enemy->update();
 	}
 	void EnemyService::render()
 	{
-		enemy_controller->render();
+		enemy->render();
 	}
-
 
 	EnemyController* EnemyService::spawnEnemy()
 	{
-		return enemy_controller;
+		//creates and intis an enemy controller
+		enemy = new EnemyController();
+		enemy->initialize();
+
+		return enemy;
 	}
 }

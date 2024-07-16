@@ -6,16 +6,17 @@ namespace Enemy
 	class EnemyService
 	{
 	private:
-		EnemyController* enemy_controller;
+		EnemyController* enemy;
 
-		EnemyController* spawnEnemy();
 
 	public:
 		EnemyService();
-		virtual ~EnemyService();
+		~EnemyService();
 
 		void initialize();
 		void update();
 		void render();
+
+		EnemyController* spawnEnemy();
 	};
 }
