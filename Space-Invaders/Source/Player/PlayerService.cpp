@@ -7,7 +7,6 @@ namespace Player
 	{
 		player_controller = new PlayerController();
 	}
-
 	PlayerService::~PlayerService()
 	{
 		delete (player_controller);
