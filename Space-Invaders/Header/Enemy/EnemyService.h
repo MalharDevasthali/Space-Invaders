@@ -1,4 +1,6 @@
 #pragma once
+#include <vector>
+
 namespace Enemy
 {
 	class EnemyController;
@@ -6,7 +8,13 @@ namespace Enemy
 	class EnemyService
 	{
 	private:
-		EnemyController* enemy;
+		const float spawn_interval = 3.f;
+
+		std::vector<EnemyController*> enemy_list;
+		float spawn_timer;
+
+		void updateSpawnTimer();
+		void processEnemySpawn();
 
 
 	public:
@@ -17,6 +25,6 @@ namespace Enemy
 		void update();
 		void render();
 
-		EnemyController* spawnEnemy();
+		void spawnEnemy();
 	};
 }
