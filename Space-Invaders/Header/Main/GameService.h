@@ -18,6 +18,8 @@ namespace Main
 		sf::RenderWindow* game_window;
 		static GameState current_state;
 
+		void showMainMenu();
+
 		void initialize();		
 		void initializeVariables();
 		void destroy();			

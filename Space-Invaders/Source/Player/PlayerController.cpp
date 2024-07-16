@@ -22,6 +22,7 @@ namespace Player
 	void PlayerController::initialize()
 	{
 		player_view->initialize(this);
+		player_model->initialize();
 	}
 
 	void PlayerController::update()
