@@ -15,6 +15,7 @@ namespace Global
 		player_service = nullptr;
 		time_service = nullptr;
 		ui_service = nullptr;
+		enemy_service = nullptr;
 
 		createServices();
 	}
@@ -68,8 +69,7 @@ namespace Global
 		graphic_service->render();
 		player_service->render();
 		enemy_service->render();
-		ui_service->render();
-		
+		ui_service->render();	
 	}
 
 	GraphicService* ServiceLocator::getGraphicService() { return graphic_service; }
