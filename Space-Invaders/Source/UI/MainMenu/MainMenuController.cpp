@@ -112,7 +112,7 @@ namespace UI
 
             if (clickedButton(&instructions_button_sprite, mouse_position))
             {
-                printf("Clicked Instruction Button \\n");
+                printf("Clicked Instruction Button\n");
             }
 
             if (clickedButton(&quit_button_sprite, mouse_position))
