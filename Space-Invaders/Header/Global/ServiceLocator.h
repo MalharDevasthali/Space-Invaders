@@ -9,7 +9,6 @@ namespace Global
     class ServiceLocator
     {
     private:
-        // Private Attributes:
         Graphic::GraphicService* graphic_service;
         Event::EventService* event_service;
         Player::PlayerService* player_service;

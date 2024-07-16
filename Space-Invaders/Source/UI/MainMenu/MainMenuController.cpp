@@ -5,7 +5,7 @@
 
 namespace UI
 {
-    namespace MainMenu //nested namespace since everything in MainMenu exists inside UI
+    namespace MainMenu 
     {
         using namespace Global;
         using namespace Main;
@@ -17,6 +17,8 @@ namespace UI
         void MainMenuController::initialize()
         {
             game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
+            initializeBackgroundImage();
+            initializeButtons();
         }
 
         void MainMenuController::update()
