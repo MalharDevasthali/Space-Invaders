@@ -8,6 +8,8 @@ namespace Enemy
 	private:
 		EnemyController* enemy_controller;
 
+		EnemyController* spawnEnemy();
+
 	public:
 		EnemyService();
 		virtual ~EnemyService();

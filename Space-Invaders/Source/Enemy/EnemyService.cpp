@@ -2,6 +2,7 @@
 #include "../../Header/Enemy/EnemyController.h"
 namespace Enemy
 {
+	
 	EnemyService::EnemyService()
 	{
 		enemy_controller = new EnemyController();
@@ -22,5 +23,11 @@ namespace Enemy
 	void EnemyService::render()
 	{
 		enemy_controller->render();
+	}
+
+
+	EnemyController* EnemyService::spawnEnemy()
+	{
+		return enemy_controller;
 	}
 }
