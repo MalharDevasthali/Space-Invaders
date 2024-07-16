@@ -1,4 +1,5 @@
 #pragma once
+#include<SFML/Graphics.hpp>
 namespace Enemy
 {
 	class EnemyView;
@@ -16,5 +17,9 @@ namespace Enemy
 		void initialize();
 		void update();
 		void render();
+
+		sf::Vector2f getEnemyPosition();
+		EnemyModel* getEnemyModel();
+		EnemyView* getEnemyView();
 	};
 }

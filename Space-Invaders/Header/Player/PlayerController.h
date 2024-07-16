@@ -28,8 +28,8 @@ namespace Player
 		void render();
 
 		sf::Vector2f getPlayerPosition();
-		PlayerModel getPlayerModel();
-		PlayerView getPlayerView();
+		PlayerModel* getPlayerModel();
+		PlayerView* getPlayerView();
 
 	};
 }

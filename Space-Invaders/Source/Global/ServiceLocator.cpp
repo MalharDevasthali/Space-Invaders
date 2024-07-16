@@ -67,8 +67,9 @@ namespace Global
 	void ServiceLocator::render() {
 		graphic_service->render();
 		player_service->render();
-		ui_service->render();
 		enemy_service->render();
+		ui_service->render();
+		
 	}
 
 	GraphicService* ServiceLocator::getGraphicService() { return graphic_service; }

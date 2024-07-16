@@ -12,7 +12,7 @@ namespace Enemy
     {
     private:
 
-        const sf::Vector2f initial_enemy_position = sf::Vector2f(950.0f, 950.0f);
+        const sf::Vector2f initial_enemy_position = sf::Vector2f(750.0f, 750.0f);
         sf::Vector2f enemy_position;
         EnemyState enemy_state;
 

@@ -41,14 +41,14 @@ namespace Player
 		return player_model->getPlayerPosition();
 	}
 
-	PlayerModel PlayerController::getPlayerModel()
+	PlayerModel* PlayerController::getPlayerModel()
 	{
-		return PlayerModel();
+		return player_model;
 	}
 
-	PlayerView PlayerController::getPlayerView()
+	PlayerView* PlayerController::getPlayerView()
 	{
-		return PlayerView();
+		return player_view;
 	}
 
 

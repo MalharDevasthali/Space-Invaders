@@ -16,11 +16,32 @@ namespace Enemy
 	}
 	void EnemyController::initialize()
 	{
+		enemy_view->initialize(this);
+		enemy_model->initialize();
 	}
 	void EnemyController::update()
 	{
+		enemy_view->update();
 	}
 	void EnemyController::render()
 	{
+		enemy_view->render();
 	}
+
+	sf::Vector2f EnemyController::getEnemyPosition()
+	{
+		return enemy_model->getEnemyPosition();
+	}
+
+	EnemyModel* EnemyController::getEnemyModel()
+	{
+		return enemy_model;
+	}
+
+	EnemyView* EnemyController::getEnemyView()
+	{
+		return enemy_view;
+	}
+
+
 }

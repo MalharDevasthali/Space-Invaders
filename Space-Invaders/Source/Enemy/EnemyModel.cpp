@@ -8,10 +8,7 @@ namespace Enemy
 	EnemyModel::~EnemyModel()
 	{
 	}
-	void EnemyModel::initialize()
-	{
-		reset();
-	}
+	void EnemyModel::initialize(){reset();}
 	void EnemyModel::reset()
 	{
 		enemy_state = EnemyState::DEAD;
@@ -19,7 +16,7 @@ namespace Enemy
 	}
 	sf::Vector2f EnemyModel::getEnemyPosition()
 	{
-		return sf::Vector2f();
+		return enemy_position;
 	}
 	void EnemyModel::setEnemyPosition(sf::Vector2f position)
 	{
