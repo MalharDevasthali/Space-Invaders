@@ -8,12 +8,12 @@ namespace Enemy
 	EnemyModel::~EnemyModel()
 	{
 	}
-	void EnemyModel::initialize(){reset();}
-	void EnemyModel::reset()
+	void EnemyModel::initialize()
 	{
-		enemy_state = EnemyState::DEAD;
-		enemy_position = initial_enemy_position;
+		movement_direction = MovementDirection::RIGHT;
+		enemy_position = reference_position;
 	}
+	
 	sf::Vector2f EnemyModel::getEnemyPosition()
 	{
 		return enemy_position;
@@ -22,6 +22,14 @@ namespace Enemy
 	{
 		enemy_position = position;
 	}
+	sf::Vector2f EnemyModel::getReferencePosition()
+	{
+		return reference_position;
+	}
+	void EnemyModel::setReferencePosition(sf::Vector2f position)
+	{
+		reference_position = position;
+	}
 	EnemyState EnemyModel::getEnemyState()
 	{
 		return enemy_state;
@@ -29,5 +37,14 @@ namespace Enemy
 	void EnemyModel::setEnemyState(EnemyState state)
 	{
 		enemy_state = state;
+	}
+	MovementDirection EnemyModel::getMovementDirection()
+	{
+		return movement_direction;
+	}
+
+	void EnemyModel::setMovementDirection(MovementDirection direction)
+	{
+		movement_direction = direction;
 	}
 }
