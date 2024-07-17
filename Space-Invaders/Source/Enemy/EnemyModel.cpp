@@ -1,4 +1,5 @@
 #include "../../Header/Enemy/EnemyModel.h"
+#include "../../Header/Enemy/EnemyConfig.h"
 
 namespace Enemy
 {
@@ -11,6 +12,7 @@ namespace Enemy
 	void EnemyModel::initialize()
 	{
 		movement_direction = MovementDirection::RIGHT;
+		enemy_state = EnemyState::PATROLLING;
 		enemy_position = reference_position;
 	}
 	
@@ -30,14 +32,6 @@ namespace Enemy
 	{
 		reference_position = position;
 	}
-	EnemyState EnemyModel::getEnemyState()
-	{
-		return enemy_state;
-	}
-	void EnemyModel::setEnemyState(EnemyState state)
-	{
-		enemy_state = state;
-	}
 	MovementDirection EnemyModel::getMovementDirection()
 	{
 		return movement_direction;
@@ -46,5 +40,25 @@ namespace Enemy
 	void EnemyModel::setMovementDirection(MovementDirection direction)
 	{
 		movement_direction = direction;
+	}
+
+	EnemyState EnemyModel::getEnemyState()
+	{
+		return enemy_state;
+	}
+
+	void EnemyModel::setEnemyState(EnemyState state)
+	{
+		enemy_state = state;
+	}
+
+	EnemyType EnemyModel::getEnemyType()
+	{
+		return enemy_type;
+	}
+
+	void EnemyModel::setEnemyType(EnemyType type)
+	{
+		enemy_type = type;
 	}
 }

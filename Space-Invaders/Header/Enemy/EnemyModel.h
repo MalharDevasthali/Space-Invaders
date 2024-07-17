@@ -2,18 +2,10 @@
 #include <SFML/Graphics.hpp>
 namespace Enemy
 {
-    enum class EnemyState
-    {
-        ALIVE,
-        DEAD,
-    };
 
-    enum class MovementDirection
-    {
-        LEFT,
-        RIGHT,
-        DOWN,
-    };
+    enum class EnemyType;
+    enum class MovementDirection;
+    enum class EnemyState;
 
     class EnemyModel
     {
@@ -21,8 +13,9 @@ namespace Enemy
 
         sf::Vector2f reference_position = sf::Vector2f(0.0f, 0.0f);
         sf::Vector2f enemy_position;
-        EnemyState enemy_state;
         MovementDirection movement_direction;
+        EnemyType enemy_type;
+        EnemyState enemy_state;
 
     public:
 
@@ -35,19 +28,20 @@ namespace Enemy
         ~EnemyModel();
 
         void initialize();
-        void reset();
-
         sf::Vector2f getEnemyPosition();
         void setEnemyPosition(sf::Vector2f position);
 
         sf::Vector2f getReferencePosition();
         void setReferencePosition(sf::Vector2f position);
 
-        EnemyState getEnemyState();
-        void setEnemyState(EnemyState state);
-
         MovementDirection getMovementDirection();
         void setMovementDirection(MovementDirection direction);
+
+        EnemyType getEnemyType();
+        void setEnemyType(EnemyType type);  
+
+        EnemyState getEnemyState();
+        void setEnemyState(EnemyState state);
 
     };
 }

@@ -2,6 +2,7 @@
 #include "../../Header/Enemy/EnemyView.h"
 #include "../../Header/Enemy/EnemyModel.h"
 #include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Enemy/EnemyConfig.h"
 
 namespace Enemy
 {
@@ -107,5 +108,11 @@ namespace Enemy
 				enemy_model->setMovementDirection(MovementDirection::LEFT);
 		}
 		else enemy_model->setEnemyPosition(currentPosition);
+	}
+	void EnemyController::getRandomInitialPosition()
+	{
+	}
+	void EnemyController::handleOutOfBounds()
+	{
 	}
 }
