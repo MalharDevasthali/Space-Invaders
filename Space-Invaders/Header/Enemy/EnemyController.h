@@ -4,10 +4,11 @@ namespace Enemy
 {
 	class EnemyView;
 	class EnemyModel;
+	enum class EnemyType;
 
 	class EnemyController
 	{
-	private:
+	protected:
 		EnemyView* enemy_view;
 		EnemyModel* enemy_model;
 
@@ -29,5 +30,7 @@ namespace Enemy
 		sf::Vector2f getEnemyPosition();
 		EnemyModel* getEnemyModel();
 		EnemyView* getEnemyView();
+		
+		EnemyType getEnemyType();
 	};
 }

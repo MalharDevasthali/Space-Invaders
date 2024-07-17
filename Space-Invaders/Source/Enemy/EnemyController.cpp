@@ -49,6 +49,11 @@ namespace Enemy
 		return enemy_view;
 	}
 
+	EnemyType EnemyController::getEnemyType()
+	{
+		return enemy_model->getEnemyType();
+	}
+
 	void EnemyController::move()
 	{
 		switch (enemy_model->getMovementDirection())
