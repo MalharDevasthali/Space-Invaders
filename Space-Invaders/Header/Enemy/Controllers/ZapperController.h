@@ -1,6 +1,7 @@
 #pragma once
 #include "../../header/Enemy/EnemyController.h"
 
+
 namespace Enemy
 {
     namespace Controller
@@ -16,7 +17,7 @@ namespace Enemy
             void moveDown();
 
         public:
-            ZapperController();
+            ZapperController(EnemyType type);
             ~ZapperController()override;
 
             void initialize() override;

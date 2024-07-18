@@ -8,7 +8,7 @@ namespace Enemy
     using namespace Global;
 	namespace Controller
 	{
-		ZapperController::ZapperController() { }
+        ZapperController::ZapperController(EnemyType type) : EnemyController(type) { }
 
 		ZapperController::~ZapperController() { }
 

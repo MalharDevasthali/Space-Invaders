@@ -3,8 +3,9 @@
 
 namespace Enemy
 {
-	EnemyModel::EnemyModel()
+	EnemyModel::EnemyModel(EnemyType type)
 	{
+		enemy_type = type;
 	}
 	EnemyModel::~EnemyModel()
 	{

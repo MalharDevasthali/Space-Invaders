@@ -17,7 +17,6 @@ namespace Enemy
 		{
 			EnemyController::initialize();
 			enemy_model->setMovementDirection(MovementDirection::DOWN);
-			
 		}
 
 		void SubzeroController::move()
