@@ -9,8 +9,10 @@ namespace Enemy
         {
         private:
             float vertical_movement_speed = 100.f;
+            float subZero_fire_rate = 1.f;
 
             void move()override;
+            void fireBullet()override;
             void moveDown();
 
         public:

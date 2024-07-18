@@ -10,8 +10,10 @@ namespace Enemy
         {
         private:
             float vertical_travel_distance = 100.f;
+            float zapper_fire_rate = 2.f;
 
             void move()override;
+            void fireBullet()override;
             void moveLeft();
             void moveRight();
             void moveDown();
