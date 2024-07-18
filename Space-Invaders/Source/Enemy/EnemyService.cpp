@@ -16,7 +16,7 @@ namespace Enemy
 
 	EnemyService::EnemyService()
 	{
-	
+		std::srand(static_cast<unsigned>(std::time(nullptr)));
 	}
 
 	EnemyService::~EnemyService()
@@ -77,8 +77,8 @@ namespace Enemy
 	}
 
 	EnemyType EnemyService::getRandomEnemyType()
-	{
-		int randomType = std::rand() % 2;  
+	{	
+		int randomType = std::rand() % 2;
 		return static_cast<Enemy::EnemyType>(randomType); 
 	}
 
