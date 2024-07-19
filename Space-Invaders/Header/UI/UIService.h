@@ -1,8 +1,10 @@
 #pragma once
 #include "../../Header/UI/MainMenu/MainMenuController.h"
+#include "../../Header/UI/Interface/IUIController.h"
 
 namespace UI
 {
+	using namespace Interface;
 	class UIService
 	{
 	private:
@@ -10,7 +12,10 @@ namespace UI
 
 		void createControllers();
 		void initializeControllers();
+		IUIController* getCurrentUIController();
+		
 		void destroy();
+
 
 	public:
 		UIService();
@@ -18,6 +23,7 @@ namespace UI
 
 		void initialize();
 		void update();
+		void showScreen();
 		void render();
 	};
 }

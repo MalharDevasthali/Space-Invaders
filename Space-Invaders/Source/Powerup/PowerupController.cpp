@@ -50,7 +50,7 @@ namespace Powerup
 
 	void PowerupController::handleOutOfBounds()
 	{
-		sf::Vector2f powerupPosition = getCollectiblePosition();
+		sf::Vector2f powerupPosition = getPowerupPosition();
 		sf::Vector2u windowSize = ServiceLocator::getInstance()->getGraphicService()->getGameWindow()->getSize();
 
 		if (powerupPosition.x < 0 || powerupPosition.x > windowSize.x ||
@@ -60,7 +60,7 @@ namespace Powerup
 		}
 	}
 
-	sf::Vector2f PowerupController::getCollectiblePosition()
+	sf::Vector2f PowerupController::getPowerupPosition()
 	{
 		return powerup_model->getPowerupPosition();
 	}

@@ -36,6 +36,10 @@ namespace UI
             game_window->draw(quit_button_sprite);
         }
 
+        void MainMenuController::show()
+        {
+        }
+
         void MainMenuController::initializeBackgroundImage()
         { 
             if (background_texture.loadFromFile(Config::background_texture_path))
