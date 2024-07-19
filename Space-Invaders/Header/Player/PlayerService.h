@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include"../../Header/Entity/EntityConfig.h"
 #pragma once
 namespace Player
 {
@@ -9,6 +10,7 @@ namespace Player
     {
     private:
         PlayerController* player_controller;
+        Entity::EntityType owner_type = Entity::EntityType::PLAYER;
 
     public:
 

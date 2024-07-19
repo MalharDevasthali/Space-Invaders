@@ -10,7 +10,10 @@ namespace Enemy
 
 	namespace Controller
 	{
-        ZapperController::ZapperController(EnemyType type) : EnemyController(type) { }
+        ZapperController::ZapperController(EnemyType type, Entity::EntityType owner_type) : EnemyController(type)
+        { 
+            this->owner_type = owner_type;
+        }
 
 		ZapperController::~ZapperController() { }
 
@@ -20,7 +23,10 @@ namespace Enemy
             rate_of_fire = zapper_fire_rate;
 		}
 
-   
+        Entity::EntityType ZapperController::getOwnerEntityType()
+        {
+            return owner_type;
+        }
         void ZapperController::move()
         {
             switch (enemy_model->getMovementDirection())
@@ -39,7 +45,7 @@ namespace Enemy
 
         void ZapperController::fireBullet()
         {
-           ServiceLocator::getInstance()->getBulletService()->spawnBullet(BulletType::LASER_BULLET,
+           ServiceLocator::getInstance()->getBulletService()->spawnBullet(BulletType::LASER_BULLET, owner_type,
            enemy_model->getEnemyPosition() + enemy_model->barrel_position_offset,
            Bullet::MovementDirection::DOWN);
             

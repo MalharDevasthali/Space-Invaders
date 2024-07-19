@@ -8,10 +8,11 @@ namespace Bullet
 {
 	using namespace Global;
 
-	BulletController::BulletController(BulletType type)
+	BulletController::BulletController(BulletType type, Entity::EntityType owner_type)
 	{
 		bullet_view = new BulletView();
-		bullet_model = new BulletModel(type);
+		bullet_model = new BulletModel(type, owner_type);
+		this->owner_type = owner_type;
 	}
 
 	BulletController::~BulletController()
@@ -89,5 +90,10 @@ namespace Bullet
 	BulletType BulletController::getBulletType()
 	{
 		return bullet_model->getBulletType();
+	}
+
+	Entity::EntityType BulletController::getOwnerEntityType()
+	{
+		return owner_type;
 	}
 }

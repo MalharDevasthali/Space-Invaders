@@ -1,19 +1,18 @@
 #pragma once
 #include<SFML/Graphics.hpp>
+#include "../../Header/Enemy/EnemyConfig.h"
 namespace Enemy
 {
 	class EnemyView;
 	class EnemyModel;
 	enum class EnemyType;
 	enum class EnemyState;
-
 	class EnemyController
 	{
 	protected:
 
 		float rate_of_fire = 3.f; //we want to fire the bullet every 3 seconds
 		float elapsed_fire_duration = 0.f; //variable to check how long it has been since we last fired
-
 
 		EnemyView* enemy_view;
 		EnemyModel* enemy_model;
@@ -28,7 +27,7 @@ namespace Enemy
 		sf::Vector2f getRandomInitialPosition();
 		void handleOutOfBounds();
 	public:
-		EnemyController(EnemyType type);
+		EnemyController(EnemyType);
 		virtual ~EnemyController();
 
 		virtual void initialize();

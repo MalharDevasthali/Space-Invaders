@@ -1,5 +1,6 @@
 #pragma once
 #include "../../header/Enemy/EnemyController.h"
+#include"../../Header/Entity/EntityConfig.h"
 
 
 namespace Enemy
@@ -11,6 +12,7 @@ namespace Enemy
         private:
             float vertical_travel_distance = 100.f;
             float zapper_fire_rate = 2.f;
+            Entity::EntityType owner_type;
 
             void move()override;
             void fireBullet()override;
@@ -19,10 +21,11 @@ namespace Enemy
             void moveDown();
 
         public:
-            ZapperController(EnemyType type);
+            ZapperController(EnemyType, Entity::EntityType);
             ~ZapperController()override;
 
             void initialize() override;
+            Entity::EntityType getOwnerEntityType();
         };
     }
 }

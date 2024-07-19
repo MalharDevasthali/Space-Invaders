@@ -1,8 +1,9 @@
 #include "../../Header/Player/PlayerModel.h"
 namespace Player
 {
-	PlayerModel::PlayerModel()
+	PlayerModel::PlayerModel(Entity::EntityType owner_type)
 	{
+		this->owner_type = owner_type;
 	}
 
 	PlayerModel::~PlayerModel()
@@ -36,5 +37,9 @@ namespace Player
 	void PlayerModel::setPlayerState(PlayerState state)
 	{
 		player_state = state;
+	}
+	Entity::EntityType PlayerModel::getOwnerEntityType()
+	{
+		return owner_type;
 	}
 }

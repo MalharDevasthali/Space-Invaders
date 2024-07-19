@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include"../../Header/Entity/EntityConfig.h"
 
 namespace Enemy
 {
@@ -14,6 +15,7 @@ namespace Enemy
 
 		std::vector<EnemyController*> enemy_list;
 		float spawn_timer;
+		Entity::EntityType owner_type = Entity::EntityType::ENEMY;
 
 		void updateSpawnTimer();
 		void processEnemySpawn();

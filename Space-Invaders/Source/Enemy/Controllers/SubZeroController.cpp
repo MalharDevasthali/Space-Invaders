@@ -10,7 +10,10 @@ namespace Enemy
 
 	namespace Controller
 	{
-		SubzeroController::SubzeroController(EnemyType type) : EnemyController(type) { }
+		SubzeroController::SubzeroController(EnemyType type, Entity::EntityType owner_type) : EnemyController(type) 
+		{ 
+			this->owner_type = owner_type;
+		}
 
 		SubzeroController::~SubzeroController() { }
 
@@ -20,6 +23,7 @@ namespace Enemy
 			rate_of_fire = subZero_fire_rate;
 			enemy_model->setMovementDirection(MovementDirection::DOWN);
 		}
+
 
 		void SubzeroController::move()
 		{
@@ -33,7 +37,7 @@ namespace Enemy
 
 		void SubzeroController::fireBullet()
 		{
-			ServiceLocator::getInstance()->getBulletService()->spawnBullet(BulletType::TORPEDO,
+			ServiceLocator::getInstance()->getBulletService()->spawnBullet(BulletType::TORPEDO, owner_type,
 				enemy_model->getEnemyPosition() + enemy_model->barrel_position_offset,
 				Bullet::MovementDirection::DOWN);
 		}
@@ -44,6 +48,12 @@ namespace Enemy
 			currentPosition.y += vertical_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 
 			enemy_model->setEnemyPosition(currentPosition);
+		}
+
+
+		Entity::EntityType SubzeroController::getOwnerEntityType()
+		{
+			return owner_type;
 		}
 	}
 }

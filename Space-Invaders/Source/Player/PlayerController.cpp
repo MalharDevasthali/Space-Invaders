@@ -8,10 +8,11 @@ namespace Player
 {
 	using namespace Global;
 	using namespace Bullet;
-	PlayerController::PlayerController()
+	PlayerController::PlayerController(Entity::EntityType owner_type)
 	{
+		this->owner_type = owner_type;
 		player_view = new PlayerView();
-		player_model = new PlayerModel();
+		player_model = new PlayerModel(owner_type);
 	}
 
 	PlayerController::~PlayerController()
@@ -52,6 +53,11 @@ namespace Player
 		return player_view;
 	}
 
+	Entity::EntityType PlayerController::getOwnerEntityType()
+	{
+		return owner_type;
+	}
+
 
 	void PlayerController::processPlayerInput()
 	{
@@ -66,7 +72,7 @@ namespace Player
 		{
 			moveRight();
 		}
-		if (event_service->pressedLeftMouseButton()) fireBullet(); //this
+		if (event_service->pressedLeftMouseButton()) fireBullet();
 	}
 
 	void PlayerController::moveLeft()
@@ -89,7 +95,7 @@ namespace Player
 
 	void PlayerController::fireBullet()
 	{
-		ServiceLocator::getInstance()->getBulletService()->spawnBullet(BulletType::LASER_BULLET,
+		ServiceLocator::getInstance()->getBulletService()->spawnBullet(BulletType::LASER_BULLET, owner_type,
 			player_model->getPlayerPosition() + player_model->barrel_position_offset,
 			Bullet::MovementDirection::UP);
 	}

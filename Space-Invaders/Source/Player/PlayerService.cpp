@@ -5,7 +5,7 @@ namespace Player
 {
 	PlayerService::PlayerService()
 	{
-		player_controller = new PlayerController();
+		player_controller = new PlayerController(owner_type);
 	}
 	PlayerService::~PlayerService()
 	{
