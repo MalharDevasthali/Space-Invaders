@@ -35,7 +35,8 @@ namespace UI
 	void UIService::update()
 	{
 		IUIController* ui_controller = getCurrentUIController();
-		if (ui_controller) ui_controller->update();
+		if (ui_controller) 
+			ui_controller->update();
 	}
 
 	void UIService::showScreen()
@@ -47,7 +48,7 @@ namespace UI
 	void UIService::render()
 	{
 		IUIController* ui_controller = getCurrentUIController();
-		if (ui_controller) ui_controller->update();
+		if (ui_controller) ui_controller->render();
 	}
 
 	void UIService::initializeControllers()

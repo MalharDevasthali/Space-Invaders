@@ -36,11 +36,11 @@ namespace Player
 
 		
 		void updateFireDuration();
-		void updateFreezDuration();
+		void updateFreezeDuration();
 
 		void processBulletFire();
-		void FireBullet(bool b_tripple_laser = false);
-		void FireBullet(sf::Vector2f position);
+		void fireBullet(bool b_tripple_laser = false);
+		void fireBullet(sf::Vector2f position);
 
 		void updatePowerupDuration();
 		void disableShield();
@@ -60,8 +60,8 @@ namespace Player
 		void onCollision(ICollider* other_collider) override;
 
 		sf::Vector2f getPlayerPosition();
-		PlayerModel* getPlayerModel();
-		PlayerView* getPlayerView();
+		int getPlayerScore();
+		PlayerState getPlayerState();
 		Entity::EntityType getOwnerEntityType();
 
 		void reset();

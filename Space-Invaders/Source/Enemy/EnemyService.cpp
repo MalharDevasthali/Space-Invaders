@@ -7,13 +7,15 @@
 #include "../../Header/Enemy/Controllers/SubZeroController.h"
 #include "../../Header/Enemy/Controllers/ZapperController.h"
 #include "../../Header/Enemy/Controllers/UFOController.h"
+#include "../../header/Collision/ICollider.h"
 
 namespace Enemy
 {
 	using namespace Global;
 	using namespace Time;
-	using namespace Enemy;
 	using namespace Controller;
+	using namespace Collision;
+
 
 	EnemyService::EnemyService()
 	{
@@ -22,7 +24,7 @@ namespace Enemy
 
 	EnemyService::~EnemyService()
 	{
-		for (int i = 0; i < enemy_list.size(); i++) delete (enemy_list[i]);
+		destroy();
 	}
 	void EnemyService::initialize()
 	{
@@ -36,6 +38,8 @@ namespace Enemy
 
 		for (int i = 0; i < enemy_list.size(); i++)
 			enemy_list[i]->update();
+		
+		destroyFlaggedEnemies();
 	}
 	void EnemyService::render()
 	{
@@ -72,12 +76,47 @@ namespace Enemy
 	EnemyController* EnemyService::spawnEnemy()
 	{
 		EnemyController* enemy_controller = createEnemy(getRandomEnemyType());
-
 		enemy_controller->initialize();
-		enemy_list.push_back(enemy_controller);
 
+		ServiceLocator::getInstance()->getCollisionService()->addCollider(dynamic_cast<ICollider*>(enemy_controller));
+		enemy_list.push_back(enemy_controller);
 		return enemy_controller;
 	}
+
+	void EnemyService::destroy()
+	{
+		for (int i = 0; i < enemy_list.size(); i++)
+		{
+			ServiceLocator::getInstance()->getCollisionService()->removeCollider(dynamic_cast<ICollider*>(enemy_list[i]));
+			delete (enemy_list[i]);
+		}
+		enemy_list.clear();
+	}
+	
+	void EnemyService::destroyEnemy(EnemyController* enemy_controller)
+	{
+		dynamic_cast<ICollider*>(enemy_controller)->disableCollision();
+		flagged_enemy_list.push_back(enemy_controller);
+		enemy_list.erase(std::remove(enemy_list.begin(), enemy_list.end(), enemy_controller), enemy_list.end());
+	}
+
+	void EnemyService::destroyFlaggedEnemies()
+	{
+		for (int i = 0; i < flagged_enemy_list.size(); i++)
+		{
+			ServiceLocator::getInstance()->getCollisionService()->removeCollider(dynamic_cast<ICollider*>(flagged_enemy_list[i]));
+			delete (flagged_enemy_list[i]);
+		}
+		flagged_enemy_list.clear();
+	}
+
+	void EnemyService::reset()
+	{
+		destroy();
+		spawn_timer = 0.0f;
+	}
+
+	
 
 	EnemyType EnemyService::getRandomEnemyType()
 	{	
@@ -85,9 +124,4 @@ namespace Enemy
 		return static_cast<Enemy::EnemyType>(randomType); 
 	}
 
-	void EnemyService::destroyEnemy(EnemyController* enemy_controller)
-	{
-		enemy_list.erase(std::remove(enemy_list.begin(), enemy_list.end(), enemy_controller), enemy_list.end());
-		delete(enemy_controller);
-	}
 }

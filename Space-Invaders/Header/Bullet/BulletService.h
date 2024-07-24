@@ -14,9 +14,13 @@ namespace Bullet
 	{
 	private:
 		std::vector<Projectile::IProjectile*> bullet_list;
+		std::vector<Projectile::IProjectile*> flagged_bullet_list;
 
 		BulletController* createBullet(BulletType bullet_type, Entity::EntityType owner_type);
 		void destroy();
+		void destroyFlaggedBullets();
+
+		bool isValidBullet(int index, std::vector<Projectile::IProjectile*>& bullet_list);
 
 	public:
 		BulletService();
@@ -28,5 +32,6 @@ namespace Bullet
 
 		BulletController* spawnBullet(BulletType bullet_type, Entity::EntityType owner_type, sf::Vector2f position, MovementDirection direction);
 		void destroyBullet(BulletController* bullet_controller);
+		void reset();
 	};
 }

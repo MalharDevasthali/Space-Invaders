@@ -5,6 +5,11 @@
 namespace Gameplay
 {
 	using namespace Main;
+	using namespace Global;
+	using namespace Player;
+	using namespace Enemy;
+	using namespace Element;
+	using namespace Bullet;
 
 	GameplayService::GameplayService() {gameplay_controller = new GameplayController();}
 
@@ -30,5 +35,12 @@ namespace Gameplay
 			return gameplay_controller->render();
 			break;
 		}
+	}
+	void GameplayService::restart()
+	{
+		ServiceLocator::getInstance()->getPlayerService()->reset();
+		//ServiceLocator::getInstance()->getEnemyService()->reset();
+		ServiceLocator::getInstance()->getBulletService()->reset();
+		//ServiceLocator::getInstance()->getElementService()->reset();
 	}
 }
